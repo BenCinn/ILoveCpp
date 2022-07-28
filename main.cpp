@@ -89,13 +89,48 @@ void arrLoop(){
 }
 
 void arrLoopPTR(){
-  int v[4];
-  int* p;
+  int v[4] = {0, 1, 2 ,3}; // array of int
+  int* p; // pointer of integer
   for (int i = 0; i < 4; i++){
-    p = &v[i];
-    std::cout<<*p<<std::endl;
+    p = &v[i]; // set p to points at array v at position i ( v[i] )
+    std::cout<<*p<<std::endl; // cout's the value that p points at ( *p )
   }
 }
+
+void arrLoopUnary(){
+  int v[4] = {0, 1, 2, 3}; // array of int
+  int& x = v[0];
+  for (int i = 0; i < 4; i++){
+    x = v[i]; // set x to the pointer's value of v[i]
+    std::cout<<x<<std::endl; // cout's the value of x
+  }
+}
+
+// Note: You need the semicolon after the struct definition
+struct Test {
+  int sz; // size/number of elements
+  double* elem;
+};
+
+void test_init(Test& v, int s)
+{
+  v.elem = new double[s];
+  v.sz = s;
+}
+
+double test_test(int s){
+  Test t;
+  test_init(t,s);
+  for (int i = 0; i != s; i++){
+    std::cin>>t.elem[i];
+  }
+  double all = 0;
+  for (int i = 0; i != s; i++){
+    all += t.elem[i];
+  }
+  return all;
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -106,5 +141,7 @@ int main(int argc, char const *argv[])
   ptrtest();
   arrLoop();
   arrLoopPTR();
+  arrLoopUnary();
+  std::cout<<test_test(3)<<std::endl;; // Test with sz of 3
   return 0;
 }
