@@ -147,6 +147,16 @@ double date_test(int d, int m, int y){
   return 0;
 }
 
+class NotVector {
+  public:
+    NotVector(int s) :elem{new double[s]}, sz{s} {} // What is this line meant to do??
+    double& operator[](int i) {return elem[i];}
+    int size() {return sz;}
+  private:
+    double* elem;
+    int sz;
+};
+
 int main(int argc, char const *argv[])
 {
   std::cout<<"Hello\n";
@@ -159,5 +169,8 @@ int main(int argc, char const *argv[])
   arrLoopUnary();
   std::cout<<test_test(3)<<std::endl;; // Test with sz of 3
   date_test(27, 7, 2022);
+  NotVector v(6);
+  std::cin >> v[3];
+  std::cout << "v[3] is " << v[3] << std::endl;
   return 0;
 }
