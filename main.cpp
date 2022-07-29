@@ -161,6 +161,7 @@ void NotVTest(){
   NotVector v(6);
   std::cin >> v[3];
   std::cout << "v[3] is " << v[3] << std::endl;
+  std::cout << "Notvector v's size is "<<v.size()<<std::endl;;
 }
 
 int main(int argc, char const *argv[])
