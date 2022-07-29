@@ -131,6 +131,21 @@ double test_test(int s){
   return all;
 }
 
+// My attempt at creating useful struct
+struct Date {
+  int date;
+  int month;
+  int year;
+};
+
+double date_test(int d, int m, int y){
+  Date t;
+  t.date = d;
+  t.month = m;
+  t.year = y;
+  std::cout<<"I love "<<t.month<<"-"<<t.date<<"-"<<t.year<<std::endl;;
+  return 0;
+}
 
 int main(int argc, char const *argv[])
 {
@@ -143,5 +158,6 @@ int main(int argc, char const *argv[])
   arrLoopPTR();
   arrLoopUnary();
   std::cout<<test_test(3)<<std::endl;; // Test with sz of 3
+  date_test(27, 7, 2022);
   return 0;
 }
