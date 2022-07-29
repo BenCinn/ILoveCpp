@@ -157,6 +157,12 @@ class NotVector {
     int sz;
 };
 
+void NotVTest(){
+  NotVector v(6);
+  std::cin >> v[3];
+  std::cout << "v[3] is " << v[3] << std::endl;
+}
+
 int main(int argc, char const *argv[])
 {
   std::cout<<"Hello\n";
@@ -169,8 +175,6 @@ int main(int argc, char const *argv[])
   arrLoopUnary();
   std::cout<<test_test(3)<<std::endl;; // Test with sz of 3
   date_test(27, 7, 2022);
-  NotVector v(6);
-  std::cin >> v[3];
-  std::cout << "v[3] is " << v[3] << std::endl;
+  NotVTest();
   return 0;
 }
