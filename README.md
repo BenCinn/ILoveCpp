@@ -1,4 +1,4 @@
-# ILoveC-
+# ILoveCpp
 My own file used for learning c++ \w the book
 
 Thanks
