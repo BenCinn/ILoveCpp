@@ -4,128 +4,128 @@
  * @brief For my study
  *
  */
-#include<iostream> //for I/O
-#include<vector> //for vector
-#include<complex> //for complex
+#include <complex>  //for complex
+#include <iostream> //for I/O
+#include <vector>   //for vector
 
-double square(double x){
-  return x*x;
-}
+double square(double x) { return x * x; }
 
-void variable_test(){
+void variable_test() {
   double d = 2.2; // floating
-  int i = 7; //integer
-  d = d+i; //arithmetic Ps. you can also use d+=i for adding and d-=i for decrement
-  i = d*i; //arithmetic
-  i--; // i = i + 1
-  i++; // i = i - 1
-  const int a = 15; // constant value
+  int i = 7;      // integer
+  d = d + i; // arithmetic Ps. you can also use d+=i for adding and d-=i for
+             // decrement
+  i = d * i; // arithmetic
+  i--;       // i = i + 1
+  i++;       // i = i - 1
+  const int a = 15;           // constant value
   std::complex<double> z = 1; // I hate forgetting "std::"
-  std::vector<int> aa = {1,2,3,4,5};
+  std::vector<int> aa = {1, 2, 3, 4, 5};
   auto b = true; // Auto state the type!
 }
 
-void intLowerUpper(){
+void intLowerUpper() {
   int i1 = 7.2; // i1 get lower
   int i2 = 7.8; // i2 get lower anyways
-  /* You cannot use init an array of integer with floating point in it because it will not get lowered and you will get error 'floating point to integer' */
+  /* You cannot use init an array of integer with floating point in it because
+   * it will not get lowered and you will get error 'floating point to integer'
+   */
   // int i2 = {7.2}; <-- will give you error
-  std::cout<<i2<<std::endl;
+  std::cout << i2 << std::endl;
 }
 
-int printbooleen(){
+int printbooleen() {
   char x;
-  while(true)
-  {
-    std::cin>>x;
-    switch (x){
-      case '0':
-        std::cout<<"It is 0\n";
-        return 0;
-      case '1':
-        std::cout<<"It is 1\n";
-        return 0;
-      default:
-        std::cout<<"Please input 0 or 1\n";
-        break;
+  while (true) {
+    std::cin >> x;
+    switch (x) {
+    case '0':
+      std::cout << "It is 0\n";
+      return 0;
+    case '1':
+      std::cout << "It is 1\n";
+      return 0;
+    default:
+      std::cout << "Please input 0 or 1\n";
+      break;
     }
   }
 }
 
-bool boolean(char a){
-  switch (a){
-    case '0':
-      return true;
-    case '1':
-      return false;
-    default:
-      return false;
+bool boolean(char a) {
+  switch (a) {
+  case '0':
+    return true;
+  case '1':
+    return false;
+  default:
+    return false;
   }
 }
 
-void print_square(double x){
-  std::cout<<"Square of "<<x<<" is " << square(x) << "\n";
+void print_square(double x) {
+  std::cout << "Square of " << x << " is " << square(x) << "\n";
 }
 
-void ptrtest(){
+void ptrtest() {
   char v[6]; // array of character
   v[3] = 'F';
-  char* p; // points to character
+  char *p;   // points to character
   p = &v[3]; // points to v[3]
-  std::cout << "v[3] is " << *p << std::endl; // p* = the object that p points to
+  std::cout << "v[3] is " << *p
+            << std::endl; // p* = the object that p points to
 }
 
-void arrLoop(){
+void arrLoop() {
   int v[4];
-  for (int i = 0; i < 4; i++){
+  for (int i = 0; i < 4; i++) {
     v[i] = i;
-    auto trailspace = " ";   // number's trailing space stuff
-    if (i == 3){
+    auto trailspace = " "; // number's trailing space stuff
+    if (i == 3) {
       auto trailspace = "";
     }
-    std::cout<<v[i]<<trailspace; // cout the current element in array
+    std::cout << v[i] << trailspace; // cout the current element in array
   }
-  std::cout<<std::endl;
+  std::cout << std::endl;
 }
 
-void arrLoopPTR(){
-  int v[4] = {0, 1, 2 ,3}; // array of int
-  int* p; // pointer of integer
-  for (int i = 0; i < 4; i++){
-    p = &v[i]; // set p to points at array v at position i ( v[i] )
-    std::cout<<*p<<std::endl; // cout's the value that p points at ( *p )
-  }
-}
-
-void arrLoopUnary(){
+void arrLoopPTR() {
   int v[4] = {0, 1, 2, 3}; // array of int
-  int& x = v[0];
-  for (int i = 0; i < 4; i++){
-    x = v[i]; // set x to the pointer's value of v[i]
-    std::cout<<x<<std::endl; // cout's the value of x
+  int *p;                  // pointer of integer
+  for (int i = 0; i < 4; i++) {
+    p = &v[i]; // set p to points at array v at position i ( v[i] )
+    std::cout << *p << std::endl; // cout's the value that p points at ( *p )
+  }
+}
+
+void arrLoopUnary() {
+  int v[4] = {0, 1, 2, 3}; // array of int
+  int &x = v[0];
+  for (int i = 0; i < 4; i++) {
+    x = v[i];                    // set x to the pointer's value of v[i]
+    std::cout << x << std::endl; // cout's the value of x
   }
 }
 
 // Note: You need the semicolon after the struct definition
 struct Test {
   int sz; // size/number of elements
-  double* elem;
+  double *elem;
 };
 
-void test_init(Test& v, int s)
-{
+void test_init(Test &v, int s) {
   v.elem = new double[s];
   v.sz = s;
 }
 
-double test_test(int s){
+double test_test(int s) {
   Test t;
-  test_init(t,s);
-  for (int i = 0; i != s; i++){
-    std::cin>>t.elem[i];
+  test_init(t, s);
+  for (int i = 0; i != s; i++) {
+    std::cin >> t.elem[i];
   }
   double all = 0;
-  for (int i = 0; i != s; i++){
+  for (int i = 0; i != s; i++) {
     all += t.elem[i];
   }
   return all;
@@ -138,35 +138,39 @@ struct Date {
   int year;
 };
 
-double date_test(int d, int m, int y){
+double date_test(int d, int m, int y) {
   Date t;
   t.date = d;
   t.month = m;
   t.year = y;
-  std::cout<<"I love "<<t.month<<"-"<<t.date<<"-"<<t.year<<std::endl;;
+  std::cout << "I love " << t.month << "-" << t.date << "-" << t.year
+            << std::endl;
+  ;
   return 0;
 }
 
 class NotVector {
-  public:
-    NotVector(int s) :elem{new double[s]}, sz{s} {} // What is this line meant to do??
-    double& operator[](int i) {return elem[i];}
-    int size() {return sz;}
-  private:
-    double* elem;
-    int sz;
+public:
+  NotVector(int s)
+      : elem{new double[s]}, sz{s} {} // What is this line meant to do??
+  double &operator[](int i) { return elem[i]; }
+  int size() { return sz; }
+
+private:
+  double *elem;
+  int sz;
 };
 
-void NotVTest(){
+void NotVTest() {
   NotVector v(6);
   std::cin >> v[3];
   std::cout << "v[3] is " << v[3] << std::endl;
-  std::cout << "Notvector v's size is "<<v.size()<<std::endl;;
+  std::cout << "Notvector v's size is " << v.size() << std::endl;
+  ;
 }
 
-int main(int argc, char const *argv[])
-{
-  std::cout<<"Hello\n";
+int main(int argc, char const *argv[]) {
+  std::cout << "Hello\n";
   print_square(1.233);
   intLowerUpper();
   printbooleen();
@@ -174,7 +178,8 @@ int main(int argc, char const *argv[])
   arrLoop();
   arrLoopPTR();
   arrLoopUnary();
-  std::cout<<test_test(3)<<std::endl;; // Test with sz of 3
+  std::cout << test_test(3) << std::endl;
+  ; // Test with sz of 3
   date_test(27, 7, 2022);
   NotVTest();
   return 0;
