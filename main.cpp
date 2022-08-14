@@ -91,7 +91,7 @@ void arrLoop() {
 
 void arrLoopPTR() {
   int v[4] = {0, 1, 2, 3}; // array of int
-  int *p;                  // pointer of integer
+  int *p;                  // pointer of integer (means that you can only use p to point at integer stuff only)
   for (int i = 0; i < 4; i++) {
     p = &v[i]; // set p to points at array v at position i ( v[i] )
     std::cout << *p << std::endl; // cout's the value that p points at ( *p )
@@ -167,6 +167,21 @@ void NotVTest() {
   std::cout << "v[3] is " << v[3] << std::endl;
   std::cout << "Notvector v's size is " << v.size() << std::endl;
   ;
+}
+
+void enumTest(){
+  enum class Color {red, blue, green};
+  enum class TrafficLight {green, yellow, red};
+  Color col = Color::red;
+  TrafficLight light = TrafficLight::red;
+}
+
+void enumPT2(){
+  enum FromBox {pen, pencil, ruler};
+  FromBox use = pen; // Declare a variable "use" with type "FromBox"
+  if (use==pen){
+    std::cout << "I am currently using pen!";
+  }
 }
 
 int main(int argc, char const *argv[]) {
